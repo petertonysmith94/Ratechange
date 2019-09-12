@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+
+  # ========================================== #
+  # app-portal                                 #
+  # ========================================== #
+
+  portal-node:
+    build: ./app-portal
+    volumes:
+      - ./app-portal:/app
+    ports:
+      - 3000:3000
+    networks:
+      - ratechange
+
+networks:
+  ratechange:
+    external: false
