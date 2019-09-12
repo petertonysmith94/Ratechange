@@ -1,7 +1,7 @@
 {
   "name": "app-portal",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
+  "author": "Peter Smith <petertonysmith94@gmail.com>",
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
