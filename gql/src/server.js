@@ -32,9 +32,7 @@ const resolvers = {
     list_currencies: async(_, params) => fetch.build(`${ process.env.EXCHANGE_RATE_API }/latest`, params).then(res => res.json())
   },
   Currencies: {
-    currencies: (data) => {
-      return Object.keys(get(data, 'rates', {}));
-    }
+    currencies: (data) => Object.keys(get(data, 'rates', {}))
   },
   Rates: {
     rates: (data) => {
