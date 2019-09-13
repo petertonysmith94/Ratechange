@@ -16,5 +16,5 @@ RUN yarn install
 # Copy application code
 COPY ./ /app/
 
-EXPOSE 3333
+EXPOSE ${ PORT }
 CMD ["yarn", "run", "start"]
