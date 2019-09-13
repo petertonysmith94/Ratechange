@@ -1,0 +1,42 @@
+Arguments: 
+  /usr/local/bin/node /usr/share/yarn/bin/yarn.js add graphql express express-graphql —save
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  10.16.3
+
+Platform: 
+  linux x64
+
+Trace: 
+  TypeError [ERR_UNESCAPED_CHARACTERS]: https://registry.yarnpkg.com/—save: Request path contains unescaped characters
+      at new ClientRequest (_http_client.js:115:13)
+      at Object.request (https.js:289:10)
+      at Request.module.exports.Request.start (/usr/share/yarn/lib/cli.js:141026:32)
+      at Request.module.exports.Request.end (/usr/share/yarn/lib/cli.js:141785:10)
+      at end (/usr/share/yarn/lib/cli.js:140839:14)
+      at Immediate.<anonymous> (/usr/share/yarn/lib/cli.js:140853:7)
+      at runCallback (timers.js:705:18)
+      at tryOnImmediate (timers.js:676:5)
+      at processImmediate (timers.js:658:5)
+
+npm manifest: 
+  {
+    "name": "graphql",
+    "version": "0.0.1",
+    "author": "Peter Smith <petertonysmith94@gmail.com>",
+    "private": true,
+    "main": "src/index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

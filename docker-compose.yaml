@@ -15,6 +15,21 @@ services:
     networks:
       - ratechange
 
+  # ========================================== #
+  # graphql                                    #
+  # ========================================== #
+
+  gql:
+    build: ./gql
+    env_file:
+      - ./gql/ci/config/local.env
+    volumes:
+      - ./gql:/app
+    ports:
+      - 3333:3333
+    networks:
+      - ratechange
+
 networks:
   ratechange:
     external: false
