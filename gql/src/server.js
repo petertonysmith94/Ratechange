@@ -16,14 +16,14 @@ const typeDefs = `
   }
 
   type Query {
-    exchange_latest(base: String): Rates
+    rates_latest(base: String): Rates
   }
 `;
 
 // Resolvers are only called when data is requested
 const resolvers = {
   Query: {
-    exchange_latest: async(_, params) => fetch.build(`${ process.env.EXCHANGE_RATE_API }/latest`, params).then(res => res.json())
+    rates_latest: async(_, params) => fetch.build(`${ process.env.EXCHANGE_RATE_API }/latest`, params).then(res => res.json())
   },
   Rates: {
     rates: (data) => {
