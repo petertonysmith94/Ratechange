@@ -1,9 +1,15 @@
 import React from 'react';
+import Tabs from '../components/Tabs'
 
 class App extends React.Component {
   render() {
     return (
-      <div>Hello world</div>
+      <Tabs
+        panes={[
+          { title: 'Live Rates', render: () => 'To implement' },
+          { title: 'Historical Rates', render: () => 'To implement' }
+        ]}
+      />
     );
   }  
 }
