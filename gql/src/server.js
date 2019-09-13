@@ -4,6 +4,10 @@ const { get } = require('lodash');
 
 // The schema for object type definitions 
 const typeDefs = `
+  type Currencies {
+    currencies: [String]
+  }
+
   type Rate {
     currency: String
     rate: Float
@@ -17,13 +21,20 @@ const typeDefs = `
 
   type Query {
     rates_latest(base: String): Rates
+    list_currencies: Currencies
   }
 `;
 
 // Resolvers are only called when data is requested
 const resolvers = {
   Query: {
-    rates_latest: async(_, params) => fetch.build(`${ process.env.EXCHANGE_RATE_API }/latest`, params).then(res => res.json())
+    rates_latest: async(_, params) => fetch.build(`${ process.env.EXCHANGE_RATE_API }/latest`, params).then(res => res.json()),
+    list_currencies: async(_, params) => fetch.build(`${ process.env.EXCHANGE_RATE_API }/latest`, params).then(res => res.json())
+  },
+  Currencies: {
+    currencies: (data) => {
+      return Object.keys(get(data, 'rates', {}));
+    }
   },
   Rates: {
     rates: (data) => {
