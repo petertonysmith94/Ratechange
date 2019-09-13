@@ -1,5 +1,5 @@
 const { ApolloServer } = require('apollo-server');
-const fetch = require('node-fetch');
+const fetch = require('./fetch.js');
 const { get } = require('lodash');
 
 // The schema for object type definitions 
@@ -23,11 +23,7 @@ const typeDefs = `
 // Resolvers are only called when data is requested
 const resolvers = {
   Query: {
-    exchange_latest: (_, params) => {
-      const endpoint = `${ process.env.EXCHANGE_RATE_API }/latest`
-
-      return fetch().then(res => res.json())
-    }
+    exchange_latest: async(_, params) => fetch.build(`${ process.env.EXCHANGE_RATE_API }/latest`, params).then(res => res.json())
   },
   Rates: {
     rates: (data) => {
