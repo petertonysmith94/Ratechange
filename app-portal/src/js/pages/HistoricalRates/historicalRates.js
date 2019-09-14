@@ -29,6 +29,7 @@ const HistoricalRates = (props) => {
         base={ state.exchange.base }
         foreign={ state.exchange.foreign }
         onChange={ (value) => dispatch({ type: 'SET_EXCHANGE', value }) }
+        onSwitch={ () => dispatch({ type: 'SWITCH_CURRENCIES' }) }
       />
 
       { /* Date range selector */ }
