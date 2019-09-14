@@ -3,8 +3,14 @@
   "version": "0.0.1",
   "author": "Peter Smith <petertonysmith94@gmail.com>",
   "dependencies": {
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-client": "^2.6.4",
+    "apollo-link-http": "^1.5.16",
+    "graphql": "^14.5.5",
+    "graphql-tag": "^2.10.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
+    "react-apollo": "^3.1.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
     "styled-components": "^4.3.2"
