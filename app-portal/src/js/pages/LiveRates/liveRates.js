@@ -1,13 +1,33 @@
 import React from 'react';
 
 // COMPONENTS
+import Exchange from '../../components/Exchange';
 
+// HELPERS
+import { reducer } from './liveRates.reducer';
 
-const LiveRates = (props) => {
+const LiveRates = () => {
+
+  const [state, dispatch] = React.useReducer(reducer, {
+    exchange: {
+      amount: '1',
+      base: '',
+      foreign: ''
+    }
+  })
 
   return (
     <div>
-      Live Rates
+      { /* The exchange rate converter */ }
+      <Exchange
+        amount={ state.exchange.amount }
+        base={ state.exchange.base }
+        foreign={ state.exchange.foreign }
+        onChange={ (value) => dispatch({ type: 'SET_EXCHANGE', value }) }
+      />
+
+      { /* Submit button */ }
+
     </div>
   );
 };
