@@ -6,6 +6,7 @@
     "apollo-cache-inmemory": "^1.6.3",
     "apollo-client": "^2.6.4",
     "apollo-link-http": "^1.5.16",
+    "date-fns": "^2.2.1",
     "graphql": "^14.5.5",
     "graphql-tag": "^2.10.1",
     "prop-types": "^15.7.2",

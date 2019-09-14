@@ -12,6 +12,8 @@ const DateSelect = (props) => {
     name,
     value,
     onChange,
+    max,
+    min
   } = props;
 
   return (
@@ -25,6 +27,8 @@ const DateSelect = (props) => {
         selected={ value }
         onChange={ (value) => onChange(value) }
         dateFormat="dd/MM/yyyy"
+        maxDate={ max }
+        minDate={ min }
       />
     </InputWrapper>
   );
