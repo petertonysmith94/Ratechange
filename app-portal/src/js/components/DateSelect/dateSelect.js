@@ -24,6 +24,7 @@ const DateSelect = (props) => {
         name={ name }
         selected={ value }
         onChange={ (value) => onChange(value) }
+        dateFormat="dd/MM/yyyy"
       />
     </InputWrapper>
   );
