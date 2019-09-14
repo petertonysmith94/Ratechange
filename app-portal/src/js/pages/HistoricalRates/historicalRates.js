@@ -1,8 +1,10 @@
 import React from 'react';
+import subDays from 'date-fns/subDays';
 
 // COMPONENTS & STYLES
 import DateRange from '../../components/DateRange';
 import Exchange from '../../components/Exchange';
+import Chart from './historicalRates.chart';
 
 // HELPERS
 import { reducer } from './historicalRates.reducer';
@@ -11,12 +13,11 @@ const HistoricalRates = (props) => {
 
   const [state, dispatch] = React.useReducer(reducer, {
     exchange: {
-      amount: '1',
       base: '',
       foreign: ''
     },
     dates: {
-      from: new Date(),
+      from: subDays(new Date(), 7),
       to: new Date()
     }
   });
@@ -25,7 +26,6 @@ const HistoricalRates = (props) => {
     <div>
       { /* The exchange rate converter */ }
       <Exchange
-        amount={ state.exchange.amount }
         base={ state.exchange.base }
         foreign={ state.exchange.foreign }
         onChange={ (value) => dispatch({ type: 'SET_EXCHANGE', value }) }
@@ -36,6 +36,12 @@ const HistoricalRates = (props) => {
         from={ state.dates.from }
         to={ state.dates.to }
         onChange={ (value) => dispatch({ type: 'SET_DATES', value }) }
+      />
+
+      { /* Historical chart */ }
+      <Chart
+        { ...state.exchange }
+        { ...state.dates }
       />
     </div>
   );

@@ -54,13 +54,15 @@ const Exchange = (props) => {
         return (
           <ExchangeWrapper>
             { /* The amount to be converted */ }
-            <Input
-              name='amount'
-              label='Amount'
-              type='number'
-              value={ amount }
-              onChange={ ({ value }) => onChange({ amount: value, base, foreign }) }
-            />
+            { amount && (
+              <Input
+                name='amount'
+                label='Amount'
+                type='number'
+                value={ amount }
+                onChange={ ({ value }) => onChange({ amount: value, base, foreign }) }
+              />
+            ) }
 
             { /* The base currency */ }
             <Dropdown
@@ -87,7 +89,7 @@ const Exchange = (props) => {
 };
 
 Exchange.defaultProps = {
-  amount: '1',
+  amount: null,
   base: '',
   foreign: ''
 };
