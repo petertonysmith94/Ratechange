@@ -5,6 +5,7 @@ import { Query } from 'react-apollo';
 
 // COMPONENTS & STYLES
 import Input from '../Input';
+import Button from '../Button';
 import Dropdown from '../Dropdown';
 import { ExchangeWrapper } from './exchange.styles';
 
@@ -16,7 +17,8 @@ const Exchange = (props) => {
     amount,
     base,
     foreign,
-    onChange
+    onChange,
+    onSwitch
   } = props;
 
   const [loaded, setLoaded] = React.useState(false);
@@ -54,13 +56,15 @@ const Exchange = (props) => {
         return (
           <ExchangeWrapper>
             { /* The amount to be converted */ }
-            <Input
-              name='amount'
-              label='Amount'
-              type='number'
-              value={ amount }
-              onChange={ ({ value }) => onChange({ amount: value, base, foreign }) }
-            />
+            { amount && (
+              <Input
+                name='amount'
+                label='Amount'
+                type='number'
+                value={ amount }
+                onChange={ ({ value }) => onChange({ amount: value, base, foreign }) }
+              />
+            ) }
 
             { /* The base currency */ }
             <Dropdown
@@ -69,6 +73,14 @@ const Exchange = (props) => {
               value={ base }
               data={ currencies.filter(currency => currency.toLowerCase() !== foreign ) }
               onChange={ ({ value }) => onChange({ amount, base: value, foreign }) }
+            />
+
+            { /* Switch currencies */ }
+            <Button
+              margin='1rem'
+              name='switch'
+              iconBefore='fas fa-arrows-alt-h'
+              onClick={ onSwitch }
             />
 
             { /* The foreign currency */ }
@@ -87,7 +99,7 @@ const Exchange = (props) => {
 };
 
 Exchange.defaultProps = {
-  amount: '1',
+  amount: null,
   base: '',
   foreign: ''
 };

@@ -1,5 +1,5 @@
-const fetch = require('node-fetch');
-const { isArray } = require('lodash');
+import fetch from 'node-fetch';
+import { isArray } from 'lodash';
 
 /**
  * Transforms an array into an encoded URI string 

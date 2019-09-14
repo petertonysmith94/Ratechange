@@ -19,14 +19,14 @@ const Button = (props) => {
     if (!iconBefore)
       return null;
 
-    return (<i className={ `fa fa-${ iconBefore }` } ></i>)
+    return (<i className={ iconBefore } ></i>)
   }
 
   const renderIconAfter = () => {
     if (!iconAfter)
       return null;
 
-      return (<i className={ `fa fa-${ iconAfter }` } ></i>)
+      return (<i className={ iconAfter } ></i>)
   }
 
   return (

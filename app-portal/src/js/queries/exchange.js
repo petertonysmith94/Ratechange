@@ -19,3 +19,15 @@ export const LATEST_RATES = gql`
     }
   }
 `;
+
+export const HISTORICAL_RATES = gql`
+  query rates_historical($base: String, $foreign: String, $from: String, $to: String) {
+    rates_historical(base: $base, foreign: $foreign, start_at: $from, end_at: $to) {
+      base
+      rates {
+        date
+        rate
+      }
+    }
+  }
+`;
