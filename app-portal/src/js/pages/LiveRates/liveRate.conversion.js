@@ -41,15 +41,13 @@ const Conversion = (props) => {
           );
         }
 
-        const latest = get(data, 'rates_latest', {});
-        const base = get(latest, 'base', '');
-        const baseRate = find(get(latest, 'rates', []), {
-          currency: get(latest, 'base', '')
+        const rates = get(data, 'rates_latest.rates', []);
+        const baseRate = find(rates, {
+          currency: base.toUpperCase()
         });
-        const foreignRate = find(get(latest, 'rates', []), {
+        const foreignRate = find(rates, {
           currency: foreign.toUpperCase()
         });
-        console.log(foreignRate);
 
         return (
           <ConversionWrapper>

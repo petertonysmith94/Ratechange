@@ -1,7 +1,6 @@
 import React from 'react';
 
 // COMPONENTS
-import { Query } from 'react-apollo';
 import Exchange from '../../components/Exchange';
 import Button from '../../components/Button';
 import Conversion from './liveRate.conversion';
@@ -17,7 +16,7 @@ const LiveRates = () => {
       base: '',
       foreign: ''
     }
-  })
+  });
 
   return (
     <div>
@@ -29,15 +28,10 @@ const LiveRates = () => {
         onChange={ (value) => dispatch({ type: 'SET_EXCHANGE', value }) }
       />
 
-      { /* Submit button */ }
-      <Button
-        iconAfter='arrow-right'
-      >
-        Submit
-      </Button>
-
-      
+      { /* Shows the currency conversion */ }
       <Conversion
+        skip={ state.skip }
+        onComplete={ () => dispatch({ type: 'CONVERSION_COMPLETE' }) }
         { ...state.exchange }
       />
     </div>
