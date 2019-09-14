@@ -75,7 +75,7 @@ const resolvers = {
           date,
           rate: get(rates, `${ date }.${ foreign }`, null)
         }
-      });
+      }).sort( (a, b) => new Date(get(b, 'date')) - new Date(get(a, 'date')) );
     }
   },
   Rates: {
