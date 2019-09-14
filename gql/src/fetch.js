@@ -40,6 +40,5 @@ const paramsObjectToUrlString = (params, slug = '') => Object.keys(params).reduc
  */
 module.exports.build = function(url, params = {}) {
   const queryString = paramsObjectToUrlString(params);
-  console.log(queryString);
   return fetch(`${ url }${ queryString ? `?${ queryString }` : '' }`)
 };
