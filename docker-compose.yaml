@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+
+  # ========================================== #
+  # app-portal                                 #
+  # ========================================== #
+
+  portal-node:
+    build: ./app-portal
+    volumes:
+      - ./app-portal:/app
+    ports:
+      - '8080:8080'
+    networks:
+      - ratechange
+
+  # ========================================== #
+  # graphql                                    #
+  # ========================================== #
+
+  gql:
+    build: ./gql
+    env_file:
+      - ./gql/ci/config/local.env
+    volumes:
+      - ./gql:/app
+    ports:
+      - 3333:3333
+    networks:
+      - ratechange
+
+networks:
+  ratechange:
+    external: false
