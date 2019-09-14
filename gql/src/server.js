@@ -29,11 +29,10 @@ const typeDefs = `
 const resolvers = {
   Query: {
     rates_latest: async(_, params) => {
-      const data = await fetch.build(`${ process.env.EXCHANGE_RATE_API }/latest`, {
-        ...params
-      }).then(res => res.json())
-
-      return { data, params };
+      return {
+        data: await fetch.build(`${ process.env.EXCHANGE_RATE_API }/latest`, { ...params }).then(res => res.json()),
+        params
+      }
     },
     list_currencies: async(_, params) => fetch.build(`${ process.env.EXCHANGE_RATE_API }/latest`, params).then(res => res.json())
   },

@@ -16,5 +16,8 @@ RUN yarn install
 # Copy application code
 COPY ./ /app/
 
+# Compile assets
+RUN yarn build
+
 EXPOSE ${ PORT }
 CMD ["yarn", "run", "start"]
