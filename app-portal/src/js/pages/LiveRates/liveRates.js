@@ -1,7 +1,10 @@
 import React from 'react';
 
 // COMPONENTS
+import { Query } from 'react-apollo';
 import Exchange from '../../components/Exchange';
+import Button from '../../components/Button';
+import Conversion from './liveRate.conversion';
 
 // HELPERS
 import { reducer } from './liveRates.reducer';
@@ -27,7 +30,16 @@ const LiveRates = () => {
       />
 
       { /* Submit button */ }
+      <Button
+        iconAfter='arrow-right'
+      >
+        Submit
+      </Button>
 
+      
+      <Conversion
+        { ...state.exchange }
+      />
     </div>
   );
 };
