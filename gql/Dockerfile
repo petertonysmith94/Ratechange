@@ -11,6 +11,7 @@ COPY ./package.json /app/package.json
 COPY ./yarn.lock /app/yarn.lock
 
 # Install packages
+RUN yarn
 RUN yarn install
 
 # Copy application code
@@ -19,5 +20,5 @@ COPY ./ /app/
 # Compile assets
 RUN yarn build
 
-EXPOSE ${ PORT }
 CMD ["yarn", "run", "start"]
+EXPOSE "${PORT}"
