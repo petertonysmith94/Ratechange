@@ -19,5 +19,5 @@ COPY ./ /app/
 # Compile assets
 RUN yarn build
 
-EXPOSE ${ PORT }
+EXPOSE 3333
 CMD ["yarn", "run", "start"]
